@@ -1,0 +1,9 @@
+---
+#
+## Main Playbook to Drive the roles
+
+
+- hosts: elk
+  remote_user: user
+  roles:
+    - { role: elasticsearch }
