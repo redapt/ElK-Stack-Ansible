@@ -1,2 +1,17 @@
 ---
 # tasks file for elasticsearch
+- name: Copy elasticsearch yum repo file
+  copy:
+    src=elasticsearch.repo
+    dest=/etc/yum.repos.d/elasticsearch.repo
+    owner=root
+    group=root
+    mode=0644
+  become: true
+
+- name: Install elasticsearch and openjdk
+  yum: name={{ item }} state=present
+  become: true
+  with_items:
+    - elasticsearch
+    - java-openjdk-headless
