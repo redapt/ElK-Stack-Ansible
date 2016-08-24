@@ -16,6 +16,10 @@
     - elasticsearch
     - java-openjdk-headless
 
+- name: Edit the config file for localhost
+  lineinfile:
+    dest='/etc/elasticsearch/elasticsearch.yml'
+    line=" network.host{{':'}} localhost"
 
 - name: Start elasticsearch service
   command: service elasticsearch start
