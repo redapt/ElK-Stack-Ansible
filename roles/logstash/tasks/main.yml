@@ -14,4 +14,22 @@
   become: true
   with_items:
     - logstash
-    
+
+- name: Copy logstash input filters
+  copy:
+    src=02-beats-input.conf
+    dest=/etc/logstash/conf.d/02-beats-input.conf
+    owner=user
+    group=user
+    mode=0644
+  become: true
+
+- name: Copy logstash output filters
+  copy:
+    src=30-elasticsearch-output.conf
+    dest=/etc/logstash/conf.d/30-lumberjack-output.conf
+    owner=user
+    group=user
+    mode=0644
+  become: true
+
