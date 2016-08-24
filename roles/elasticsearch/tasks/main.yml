@@ -15,3 +15,12 @@
   with_items:
     - elasticsearch
     - java-openjdk-headless
+
+
+- name: Start elasticsearch service
+  command: service elasticsearch start
+  ignore_errors: true
+
+- name: Setup elasticsearch service
+  service: name=elasticsearch state=started enabled=true
+  become: true
