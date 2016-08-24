@@ -1,2 +1,17 @@
 ---
 # tasks file for logstash
+- name: Copy logstash yum repo file
+  copy:
+    src=logstash.repo
+    dest=/etc/yum.repos.d/logstash.repo
+    owner=user
+    group=user
+    mode=0644
+  become: true
+
+- name: Install logstash rpms
+  yum: name={{ item }} state=present
+  become: true
+  with_items:
+    - logstash
+    
