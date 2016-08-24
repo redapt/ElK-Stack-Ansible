@@ -27,9 +27,38 @@
 - name: Copy logstash output filters
   copy:
     src=30-elasticsearch-output.conf
-    dest=/etc/logstash/conf.d/30-lumberjack-output.conf
+    dest=/etc/logstash/conf.d/30-elasticsearch-output.conf
     owner=user
     group=user
     mode=0644
   become: true
+
+- name: Copy logstash syslog filters
+  copy:
+    src=10-syslog-filter.conf
+    dest=/etc/logstash/conf.d/10-syslog-filter.conf
+    owner=user
+    group=user
+    mode=0644
+  become: true
+
+- name: Copy logstash chef logs filter
+  copy:
+    src=13-chef-central-log.conf
+    dest=/etc/logstash/conf.d/13-chef-central-log.conf
+    owner=user
+    group=user
+    mode=0644
+  become: true
+  register: logstash_needs_restart
+
+- name: Copy logstash apachelog filter
+  copy:
+    src=11-apachelog-filter.conf
+    dest=/etc/logstash/conf.d/11-apachelog-filter.conf
+    owner=user
+    group=user
+    mode=0644
+  become: true
+  register: logstash_needs_restart
 
