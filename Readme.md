@@ -6,9 +6,9 @@ Ansible role to install ELK stack in Redhat 7 / CentOS 7 environments
 Requirements
 ------------
 
-CentOS 7 / Redhat 7
-Ansible installed
-sudo access enabled for the remote user
+1.CentOS 7 / Redhat 7
+2.Ansible installed
+3.sudo access enabled for the remote user
 
 Role Variables
 --------------
