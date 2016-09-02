@@ -1,0 +1,4 @@
+- hosts: elk-server
+  sudo: yes
+  roles:
+    - { role: ansible-elk }
