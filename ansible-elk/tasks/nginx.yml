@@ -21,7 +21,9 @@
 
 - name: Copying nginx conf
   template: src=ansible-elk/files/nginx.conf.j2 dest=/etc/nginx/nginx.conf
-  notify: Restart Nginx
+
+- name: Restart nginx
+  service: name=nginx enabled=yes state=restarted
 
 - name: Copying Kibana conf
   template: src=ansible-elk/files/kibana-conf.j2 dest=/etc/nginx/conf.d/kibana.conf
