@@ -13,13 +13,13 @@
   copy: src=ansible-elk/files/02-beats-input.conf dest=/etc/logstash/conf.d/02-beats-input.conf
 
 - name: Configure Logstash apache-log filter
-  copy: src=ansible-elk/files/11-apache-logs-filter.conf dest=etc/logstash/conf.d/11-apache-logs-filter.conf
+  copy: src=ansible-elk/files/11-apache-logs-filter.conf dest=/etc/logstash/conf.d/11-apache-logs-filter.conf
 
 - name: Configure Logstash chef-logs filter
-  copy: src=ansible-elk/files/12-chef-logs.conf dest=etc/logstash/conf.d/12-chef-logs.conf
+  copy: src=ansible-elk/files/12-chef-logs.conf dest=/etc/logstash/conf.d/12-chef-logs.conf
 
 - name: Configure Logstash chef-logs-central filter
-  copy: src=ansible-elk/files/13-chef-central-logs.conf dest=etc/logstash/conf.d/13-chef-central-logs.conf
+  copy: src=ansible-elk/files/13-chef-central-logs.conf dest=/etc/logstash/conf.d/13-chef-central-logs.conf
 
 - name: Configure Logstash syslog filter
   copy: src=ansible-elk/files/10-syslog-filter.conf dest=/etc/logstash/conf.d/10-syslog-filter.conf
