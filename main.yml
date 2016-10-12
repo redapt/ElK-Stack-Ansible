@@ -1,4 +1,4 @@
-- hosts: elk-server
+- hosts: linux_acad_server
   sudo: yes
   roles:
     - { role: ansible-elk }
